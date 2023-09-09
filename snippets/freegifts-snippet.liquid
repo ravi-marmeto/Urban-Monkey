@@ -1,0 +1,12 @@
+<script>
+
+  try {
+      if(typeof Shopify === "undefined") window.Shopify = {}
+      Shopify.reRenderCartCustom = async ()=>{
+          console.info('FGSECOMAPP-update')
+          await location.reload();
+      };
+      
+  } catch(e) {}
+
+</script>

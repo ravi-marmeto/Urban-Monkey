@@ -1,0 +1,11 @@
+<script>
+  let zecpeEvents = ["checkout_initiated_zecpe"];
+  zecpeEvents.forEach((eventName) => {
+      window.addEventListener(eventName, (e) => {
+          let closeDrawer = document.querySelector("button.t4s-drawer__close");
+          if (closeDrawer) {
+              closeDrawer.click();
+          }
+      })
+  })
+</script>

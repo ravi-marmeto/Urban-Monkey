@@ -1,0 +1,1057 @@
+{% if product.type == 'Apparel' %}
+  <!-- - sizechart - -->
+  
+    <div class="size-chart">
+      <label class="trigger size-chart-label">size chart</label>
+    </div>
+  <!-- - sizechart - -->
+  <style>
+    .size-chart-label {cursor: pointer;font-size: 14px;margin: 0;text-decoration: underline;color: #0000ee;}
+    .pop-content {display: none;}
+    .scaleunit {display: inline-block;border: 2px solid #fcfcfc;margin-top: 0px;}
+    .scaleunit-div h3 {color: #fff;font-size: 20px;margin: 5px auto;}
+    .scaleunit button {color: #fff;font-weight: 600;background: #000000;font-size: 20px;padding: 5px;}
+    button.size-active {background: #ffffff;color: #000;}
+    .size-btn {outline:none;}
+    .custom-model-main {
+      text-align: center;overflow: hidden;position: fixed;top: 0;right: 0;bottom: 0;left: 0;display: none;
+      -webkit-overflow-scrolling: touch;outline: 0;opacity: 0;
+      -webkit-transition: opacity 0.15s linear, z-index 0.15;
+      -o-transition: opacity 0.15s linear, z-index 0.15;
+      transition: opacity 0.15s linear, z-index 0.15;
+      z-index: -1;overflow-x: hidden;overflow-y: auto;
+    }
+    .custom-model-main.model-open {z-index: 99999;opacity: 1;overflow-x: hidden;padding: 0 20px;display: block;-webkit-box-align: center;-ms-flex-align: center;align-items: center;}
+    .custom-model-inner {
+      -webkit-transform: translate(0, -25%);
+      -ms-transform: translate(0, -25%);
+      transform: translate(0, -25%);
+      -webkit-transition: -webkit-transform 0.3s ease-out;
+      -o-transition: -o-transform 0.3s ease-out;
+      transition: -webkit-transform 0.3s ease-out;
+      -o-transition: transform 0.3s ease-out;
+      transition: transform 0.3s ease-out;
+      transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+      display: inline-block;
+      vertical-align: middle;
+      width: 750px;
+      margin: 30px auto;
+      max-width: 97%;background: #000000;
+    }
+    .model-open .custom-model-inner {
+      -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+      transform: translate(0, 0);
+      position: relative;
+      z-index: 999;
+      top: 0px;
+    }
+    .model-open .bg-overlay {background: rgba(0, 0, 0, 0.6);z-index: 99;}
+    .bg-overlay {background: rgba(0, 0, 0, 0);height: 100vh;width: 100%;position: fixed;left: 0;top: 0;right: 0;bottom: 0;z-index: 0;-webkit-transition: background 0.15s linear;-o-transition: background 0.15s linear;transition: background 0.15s linear;}
+    .close-btn {position: absolute;right: -9px;top: -22px;cursor: pointer;z-index: 99;font-size: 30px;color: #fff;}
+    .mobile-product-view{display:none;}
+    .desktop-product-view{display:block;}
+    @media screen and (max-width: 749px) {
+      .mobile-product-view{display:block;}
+      .desktop-product-view{display:none;}
+    }
+  </style>
+  <!-- - sizechart - -->
+  <div class="custom-model-main">
+    <div class="custom-model-inner">
+      <div class="close-btn">×</div>
+      <div class="scaleunit-div">
+        {% if product.tags contains 'new-boxers' %}{% else %}
+        <h3>Select</h3>
+        <div class="scaleunit">
+          <button class="size-btn size-active" data-id="inches">in</button
+          ><button class="size-btn" data-id="cm">cm</button>
+        </div>
+        {% endif %}
+        <div class="pop-content" id="inches" style="display: block;">
+          <div class="desktop-product-view">
+            <!-- - Sets - -->
+            {% if product.tags contains 'set_hoodie' and product.tags contains 'set_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/in-d-hoodie.jpg?v=1675342804"
+                alt="Hoodie size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_in_d_3.png?v=1677070101"
+                alt="Sweat Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_hoodie' and product.tags contains 'set_joggers' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/in-d-hoodie.jpg?v=1675342804"
+                alt="Hoodie size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-desktop-inches.jpg?v=1666179478"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'set_sweatshirt' and product.tags contains 'set_utility' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-in-desk.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/utility-shorts-desk-in-new.jpg?v=1660381811"
+                alt="Utility Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_sweatshirt' and product.tags contains 'set_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-in-desk.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_in_d_3.png?v=1677070101"
+                alt="Sweat Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_sweatshirt' and product.tags contains 'set_joggers' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-in-desk.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-desktop-inches.jpg?v=1666179478"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'set_oversized_tee' and product.tags contains 'set_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-desk-in.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_in_d_3.png?v=1677070101"
+                alt="Sweat Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_oversized_tee' and product.tags contains 'set_joggers' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-desk-in.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-desktop-inches.jpg?v=1666179478"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'set_oversized_tee' and product.tags contains 'set_denim_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-desk-in.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/denim-shorts-desk-in-new.jpg?v=1660382007"
+                alt="Jeans Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_tee' and product.tags contains 'set_denim_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/regular-in-desk-size.jpg?v=1671607709"
+                alt="Tshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/denim-shorts-desk-in-new.jpg?v=1660382007"
+                alt="Jeans Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_hoodie' and product.tags contains 'set_boxer' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/in-d-hoodie.jpg?v=1675342804"
+                alt="Hoodie size chart"
+              >
+              <img
+                class="lazy2"
+           
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/boxers-in-d.jpg?v=1675675513"
+                alt="Boxers size chart"
+              >
+
+            {% elsif product.tags contains 'joggers' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-desktop-inches.jpg?v=1666179478"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'jeans-pants' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/in-d-3-100-denim.jpg?v=1680263953"
+                alt="Jeans size chart"
+              >
+
+            {% elsif product.tags contains 'sweatshirts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-in-desk.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+            {% elsif product.tags contains 'long sleeve' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-long-sleeve-in-desk.jpg?v=1668065291"
+                alt="Long sleeves size chart"
+              >
+            {% elsif product.tags contains 'hoodie' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/in-d-hoodie.jpg?v=1675342804"
+                alt="Hoodie size chart"
+              >
+            {% elsif product.tags contains 'new-boxfit' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-new-in-desk.jpg?v=1689746191"
+                alt="Box Fit size chart"
+              >
+            {% elsif product.tags contains 'box fit' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-desk-in.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+            {% elsif product.tags contains 'jacket' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/jacket-desktop-inches.jpg?v=1666163038"
+                alt="Jackets size chart"
+              >
+
+            {% elsif product.tags contains 'jeans-shorts' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/denim-shorts-desk-in-new.jpg?v=1660382007"
+                alt="Jeans Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'utility-shorts' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/utility-shorts-desk-in-new.jpg?v=1660381811"
+                alt="Utility Shorts size chart"
+              >
+            {% elsif product.tags contains 'shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_in_d_3.png?v=1677070101"
+                alt="Sweat Shorts size chart"
+              >
+
+
+            {% elsif product.tags contains 'new-boxers' %}
+              <img
+                class="lazy2"
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-new-boxers-desk.jpg?v=1689750039"
+                alt="Boxers size chart"
+              >
+            
+            {% elsif product.tags contains 'boxers' %}
+              <img
+                class="lazy2"
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/boxers-in-d.jpg?v=1675675513"
+                alt="Boxers size chart"
+              >
+
+            {% else %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/regular-in-desk-size.jpg?v=1671607709"
+                alt="Tshirt size chart"
+              >
+            {% endif %}
+          </div>
+          <div class="mobile-product-view">
+            <!-- - Sets - -->
+            {% if product.tags contains 'set_hoodie' and product.tags contains 'set_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/in-m-hoodie.jpg?v=1675342804"
+                alt="Hoodie size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_in_m_3.png?v=1677070102"
+                alt="Sweat Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_hoodie' and product.tags contains 'set_joggers' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/in-m-hoodie.jpg?v=1675342804"
+                alt="Hoodie size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-mob-inches.jpg?v=1666179478"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'set_sweatshirt' and product.tags contains 'set_utility' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-in-mob.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/utility-shorts-mob-in-new.jpg?v=1660381811"
+                alt="Utility Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_sweatshirt' and product.tags contains 'set_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-in-mob.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_in_m_3.png?v=1677070102"
+                alt="Sweat Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_sweatshirt' and product.tags contains 'set_joggers' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-in-mob.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-mob-inches.jpg?v=1666179478"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'set_oversized_tee' and product.tags contains 'set_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-mob-in.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_in_m_3.png?v=1677070102"
+                alt="Sweat Shorts size chart"
+              >
+             
+            {% elsif product.tags contains 'set_oversized_tee' and product.tags contains 'set_joggers' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-mob-in.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-mob-inches.jpg?v=1666179478"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'set_oversized_tee' and product.tags contains 'set_denim_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-mob-in.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/denim-shorts-mob-in-new.jpg?v=1660382007"
+                alt="Jeans Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_tee' and product.tags contains 'set_denim_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/regular-in-mob-size.jpg?v=1671607709"
+                alt="Tshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/denim-shorts-mob-in-new.jpg?v=1660382007"
+                alt="Jeans Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_hoodie' and product.tags contains 'set_boxer' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/in-m-hoodie.jpg?v=1675342804"
+                alt="Hoodie size chart"
+              >
+              <img
+                class="lazy2"
+         
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/boxers-in-m.jpg?v=1675675512"
+                alt="Boxers size chart"
+              >
+
+            {% elsif product.tags contains 'joggers' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-mob-inches.jpg?v=1666179478"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'jeans-pants' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/in-m-3-100-denim.jpg?v=1680263953"
+                alt="Jeans size chart"
+              >
+
+            {% elsif product.tags contains 'sweatshirts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-in-mob.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+            {% elsif product.tags contains 'long sleeve' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-long-sleeve-in-mob.jpg?v=1668065291"
+                alt="Long sleeves size chart"
+              >
+            {% elsif product.tags contains 'hoodie' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/in-m-hoodie.jpg?v=1675342804"
+                alt="Hoodie size chart"
+              >
+            {% elsif product.tags contains 'new-boxfit' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-new-in-mob.jpg?v=1689746191"
+                alt="Box Fit size chart"
+              >
+            {% elsif product.tags contains 'box fit' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-mob-in.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+            {% elsif product.tags contains 'jacket' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/jacket-mob-inches.jpg?v=1666163038"
+                alt="Jackets size chart"
+              >
+
+            {% elsif product.tags contains 'jeans-shorts' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/denim-shorts-mob-in-new.jpg?v=1660382007"
+                alt="Jeans Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'utility-shorts' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/utility-shorts-mob-in-new.jpg?v=1660381811"
+                alt="Utility Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_in_m_3.png?v=1677070102"
+                alt="Sweat Shorts size chart"
+              >
+
+
+            {% elsif product.tags contains 'new-boxers' %}
+              <img
+                class="lazy2"
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-new-boxers-mob.jpg?v=1689750039"
+                alt="Boxers size chart"
+              >
+            
+            {% elsif product.tags contains 'boxers' %}
+              <img
+                class="lazy2"
+           
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/boxers-in-m.jpg?v=1675675512"
+                alt="Boxers size chart"
+              >
+
+            {% else %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/regular-in-mob-size.jpg?v=1671607709"
+                alt="Tshirt size chart"
+              >
+            {% endif %}
+          </div>
+        </div>
+        <div class="pop-content" id="cm">
+          <div class="desktop-product-view">
+            <!-- - Sets - -->
+            {% if product.tags contains 'set_hoodie' and product.tags contains 'set_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/cm-d-hoodie.jpg?v=1675342804"
+                alt="Hoodie size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_cm_d_3.png?v=1677070101"
+                alt="Sweat Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_hoodie' and product.tags contains 'set_joggers' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/cm-d-hoodie.jpg?v=1675342804"
+                alt="Hoodie size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-desktop-cms.jpg?v=1666179453"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'set_sweatshirt' and product.tags contains 'set_utility' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-cm-desk.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/utility-shorts-desk-cm-new.jpg?v=1660381811"
+                alt="Utility Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_sweatshirt' and product.tags contains 'set_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-cm-desk.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_cm_d_3.png?v=1677070101"
+                alt="Sweat Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_sweatshirt' and product.tags contains 'set_joggers' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-cm-desk.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-desktop-cms.jpg?v=1666179453"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'set_oversized_tee' and product.tags contains 'set_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-desk-cms.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_cm_d_3.png?v=1677070101"
+                alt="Sweat Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_oversized_tee' and product.tags contains 'set_joggers' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-desk-cms.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-desktop-cms.jpg?v=1666179453"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'set_oversized_tee' and product.tags contains 'set_denim_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-desk-cms.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/denim-shorts-desk-cm-new.jpg?v=1660382007"
+                alt="Jeans Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_tee' and product.tags contains 'set_denim_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/regular-cm-desk-size.jpg?v=1671607709"
+                alt="Tshirt size chart"
+              >
+              <img
+                  class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/denim-shorts-desk-cm-new.jpg?v=1660382007"
+                alt="Jeans Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_hoodie' and product.tags contains 'set_boxer' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/cm-d-hoodie.jpg?v=1675342804"
+                alt="Hoodie size chart"
+              >
+              <img
+                class="lazy2"
+             
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/boxers-cm-d.jpg?v=1675675513"
+                alt="Boxers size chart"
+              >
+
+            {% elsif product.tags contains 'joggers' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-desktop-cms.jpg?v=1666179453"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'jeans-pants' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/cm-d-3-100-denim.jpg?v=1680263953"
+                alt="Jeans size chart"
+              >
+
+            {% elsif product.tags contains 'sweatshirts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-cm-desk.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+            {% elsif product.tags contains 'long sleeve' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-long-sleeve-cm-desk.jpg?v=1668065291"
+                alt="Long sleeves size chart"
+              >
+            {% elsif product.tags contains 'hoodie' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/cm-d-hoodie.jpg?v=1675342804"
+                alt="Hoodie size chart"
+              >
+            {% elsif product.tags contains 'new-boxfit' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-new-cm-desk.jpg?v=1689746190"
+                alt="Box Fit size chart"
+              >
+            {% elsif product.tags contains 'box fit' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-desk-cms.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+            {% elsif product.tags contains 'jacket' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/jacket-desktop-cms.jpg?v=1666163038"
+                alt="Jackets size chart"
+              >
+
+            {% elsif product.tags contains 'jeans-shorts' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/denim-shorts-desk-cm-new.jpg?v=1660382007"
+                alt="Jeans Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'utility-shorts' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/utility-shorts-desk-cm-new.jpg?v=1660381811"
+                alt="Utility Shorts size chart"
+              >
+            {% elsif product.tags contains 'shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_cm_d_3.png?v=1677070101"
+                alt="Sweat Shorts size chart"
+              >
+            {% elsif product.tags contains 'boxers' %}
+              <img
+                class="lazy2"
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/boxers-cm-d.jpg?v=1675675513"
+                alt="Boxers size chart"
+              >
+
+            {% else %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/regular-cm-desk-size.jpg?v=1671607709"
+                alt="Tshirt size chart"
+              >
+            {% endif %}
+          </div>
+          <div class="mobile-product-view">
+            <!-- - Sets - -->
+            {% if product.tags contains 'set_hoodie' and product.tags contains 'set_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/cm-m-hoodie.jpg?v=1675406385"
+                alt="Hoodie size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_cm_m_3.png?v=1677070101"
+                alt="Sweat Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_hoodie' and product.tags contains 'set_joggers' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/cm-m-hoodie.jpg?v=1675406385"
+                alt="Hoodie size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-mob-cms.jpg?v=1666179478"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'set_sweatshirt' and product.tags contains 'set_utility' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-cm-mob.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/utility-shorts-mob-cm-new.jpg?v=1660381811"
+                alt="Utility Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_sweatshirt' and product.tags contains 'set_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-cm-mob.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_cm_m_3.png?v=1677070101"
+                alt="Sweat Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_sweatshirt' and product.tags contains 'set_joggers' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-cm-mob.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-mob-cms.jpg?v=1666179478"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'set_oversized_tee' and product.tags contains 'set_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-mob-cms.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_cm_m_3.png?v=1677070101"
+                alt="Sweat Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_oversized_tee' and product.tags contains 'set_joggers' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-mob-cms.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-mob-cms.jpg?v=1666179478"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'set_oversized_tee' and product.tags contains 'set_denim_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-mob-cms.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/denim-shorts-mob-cm-new.jpg?v=1660382007"
+                alt="Jeans Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_tee' and product.tags contains 'set_denim_shorts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/regular-cm-mob-size.jpg?v=1671607709"
+                alt="Tshirt size chart"
+              >
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/denim-shorts-mob-cm-new.jpg?v=1660382007"
+                alt="Jeans Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'set_hoodie' and product.tags contains 'set_boxer' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/cm-m-hoodie.jpg?v=1675406385"
+                alt="Hoodie size chart"
+              >
+              <img
+                class="lazy2"
+         
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/boxers-cm-m.jpg?v=1675675512"
+                alt="Sweat Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'joggers' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/joggers-mob-cms.jpg?v=1666179478"
+                alt="Joggers size chart"
+              >
+
+            {% elsif product.tags contains 'jeans-pants' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/cm-m-3-100-denim.jpg?v=1680263953"
+                alt="Jeans size chart"
+              >
+
+            {% elsif product.tags contains 'sweatshirts' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-sweatshirt-cm-mob.jpg?v=1668064110"
+                alt="Sweatshirt size chart"
+              >
+            {% elsif product.tags contains 'long sleeve' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/um-long-sleeve-cm-mob.jpg?v=1668065291"
+                alt="Long sleeves size chart"
+              >
+            {% elsif product.tags contains 'hoodie' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/cm-m-hoodie.jpg?v=1675406385"
+                alt="Hoodie size chart"
+              >
+            {% elsif product.tags contains 'new-boxfit' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-new-cm-mob.jpg?v=1689746190"
+                alt="Box Fit size chart"
+              >
+            {% elsif product.tags contains 'box fit' %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/box-fit-old-mob-cms.jpg?v=1687258648"
+                alt="Box Fit size chart"
+              >
+            {% elsif product.tags contains 'jacket' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/jacket-mob-cms.jpg?v=1666163038"
+                alt="Jackets size chart"
+              >
+
+            {% elsif product.tags contains 'jeans-shorts' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/denim-shorts-mob-cm-new.jpg?v=1660382007"
+                alt="Jeans Shorts size chart"
+              >
+
+            {% elsif product.tags contains 'utility-shorts' %}
+              <img
+                class="lazy2"
+                
+                src="//cdn.shopify.com/s/files/1/0661/7423/files/utility-shorts-mob-cm-new.jpg?v=1660381811"
+                alt="Utility Shorts size chart"
+              >
+            {% elsif product.tags contains 'shorts' %}
+              <img
+                class="lazy2"
+          
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/shorts_cm_m_3.png?v=1677070101"
+                alt="Sweat Shorts size chart"
+              >
+            {% elsif product.tags contains 'boxers' %}
+              <img
+                class="lazy2"
+             
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/boxers-cm-m.jpg?v=1675675512"
+                alt="Sweat Shorts size chart"
+              >
+
+            {% else %}
+              <img
+                class="lazy2"
+                
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/regular-cm-mob-size.jpg?v=1671607709"
+                alt="Tshirt size chart"
+              >
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-overlay"></div>
+  </div>
+  <!-- - sizechart - -->
+{% endif %}

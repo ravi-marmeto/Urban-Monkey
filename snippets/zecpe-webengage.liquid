@@ -1,0 +1,136 @@
+<script>
+  
+try {
+  let zecpeEvents = [
+    "address_added_zecpe",
+    "user_verified_zecpe",
+    "checkout_exited_zecpe",
+  ];
+
+  zecpeEvents.forEach((eventName) => {
+    window.addEventListener(eventName, (e) => {
+      if (!window.webengage) {
+        console.log("Webengage object not found :: Skipping event tracking");
+        return;
+      }
+      switch (eventName) {
+        case "address_added_zecpe": {
+          let {
+            checkoutLink,
+            cartDetails: {
+              token,
+              total_price,
+              items_subtotal_price,
+              items,
+              marketingConsent,
+            },
+            firstName,
+            lastName,
+            city,
+            pincode,
+            state,
+            email,
+            stateCode,
+          } = e.detail;
+
+          // * Appending https:// before checkoutLink
+
+          if (!checkoutLink.includes("https://")) {
+            checkoutLink = `https://${checkoutLink}`;
+          }
+
+          let checkoutCreatedEventPayload = {
+            currency: "INR",
+            "abandoned checkout url": checkoutLink,
+            cart_token: token,
+            "total price": total_price,
+            "subtotal price": items_subtotal_price,
+            "shipping address city": city,
+            "shipping address country": "India",
+            "shipping address country code": "IN",
+            "shipping address province": state,
+            "shipping address province code": stateCode,
+            variantIds: items.map((item) => String(item.variant_id)),
+            product_id: items.map((item) => String(item.product_id)),
+            line_items: items.map((item) => String(item.variant_id)),
+          };
+
+          console.log(
+            "Webengage checkout created event payload :: ",
+            checkoutCreatedEventPayload
+          );
+          window.webengage.track(
+            "Checkout created",
+            checkoutCreatedEventPayload
+          );
+
+          let checkoutUpdatedEventPayload = {
+            currency: "INR",
+            "abandoned checkout url": checkoutLink,
+            ...(email && { email: email }),
+            phone: String(e.detail.mobileNumber),
+            cart_token: token,
+            "total price": total_price,
+            "subtotal price": items_subtotal_price,
+            "shipping address city": city,
+            "shipping address country": "India",
+            "shipping address country code": "IN",
+            "shipping address province": state,
+            "shipping address province code": stateCode,
+            "shipping address zip": String(pincode),
+            "customer email": email,
+            "customer phone": String(e.detail.mobileNumber),
+            "customer first name": firstName,
+            "customer last name": lastName,
+            "billing address city": city,
+            "billing address country": "India",
+            "billing address country code": "IN",
+            "billing address province": state,
+            "billing address province code": stateCode,
+            "billing address zip": String(pincode),
+            "default address city": city,
+            "default address country": "India",
+            "default address country code": "IN",
+            "default address province": state,
+            "default address province code": stateCode,
+            "default address zip": String(pincode),
+            variantIds: items.map((item) => String(item.variant_id)),
+            product_id: items.map((item) => String(item.product_id)),
+            "customer accepts marketing": marketingConsent,
+            line_items: items.map((item) => String(item.variant_id)),
+          };
+
+          console.log(
+            "Webengage checkout updated event payload :: ",
+            checkoutUpdatedEventPayload
+          );
+          window.webengage.track(
+            "Checkout updated",
+            checkoutUpdatedEventPayload
+          );
+
+          webengage.user.setAttribute("we_first_name", firstName);
+          webengage.user.setAttribute("we_last_name", lastName);
+          if (email) {
+            webengage.user.setAttribute("we_email", email);
+          }
+          break;
+        }
+
+        case "user_verified_zecpe": {
+          const { mobileNumber } = e.detail;
+
+          console.log(
+            `Webengage user verified phone attribute set :: +91${mobileNumber}`
+          );
+          webengage.user.setAttribute("we_phone", `+91${mobileNumber}`);
+        }
+      }
+    });
+  });
+} catch (err) {
+  console.log(`Error in zecpe webengage script: ${err}`);
+}
+
+
+</script>
