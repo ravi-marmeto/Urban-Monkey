@@ -308,6 +308,22 @@
                 alt="Boxers size chart"
               >
 
+            {% comment %} desktop, half shirts {% endcomment %}
+            {% elsif product.tags contains 'umshirts' %}
+              <img
+                class="lazy2"
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/UM23_WEB_CORDUROY_SHIRT_HALF_DESK_4x-100.jpg?v=1694327108"
+                alt="Shirt Half size chart"
+              >
+
+            {% comment %} inch, desktop, full shirts {% endcomment %}
+            {% elsif product.tags contains 'umshirtsls' %}
+              <img
+                class="lazy2"
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/UM23_WEB_CORDUROY_SHIRT_FULL_DESK_INCHES_4x-100.jpg?v=1694327107"
+                alt="Shirt Full size chart"
+              >
+
             {% else %}
               <img
                 class="lazy2"
@@ -557,6 +573,22 @@
                 src="https://cdn.shopify.com/s/files/1/0661/7423/files/boxers-in-m.jpg?v=1675675512"
                 alt="Boxers size chart"
               >
+                
+            {% comment %} mobile, half {% endcomment %}
+            {% elsif product.tags contains 'umshirts' %}
+            <img
+              class="lazy2"
+              src="https://cdn.shopify.com/s/files/1/0661/7423/files/UM23_WEB_CORDUROY_SHIRT_HALF_MOB_4x-100.jpg?v=1694327107"
+              alt="Shirt Half size chart"
+            >
+              
+            {% comment %}inch, mobile, full {% endcomment %}
+            {% elsif product.tags contains 'umshirtsls' %}
+              <img
+                class="lazy2"
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/UM23_WEB_CORDUROY_SHIRT_FULL_MOB_INCHES_4x-100.jpg?v=1694327107"
+                alt="Shirt Full size chart"
+              >
 
             {% else %}
               <img
@@ -799,6 +831,14 @@
                 alt="Boxers size chart"
               >
 
+            {% comment %}cms, desktop, full {% endcomment %}
+            {% elsif product.tags contains 'umshirtsls' %}
+              <img
+                class="lazy2"
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/UM23_WEB_CORDUROY_SHIRT_FULL_DESK_CMS_4x-100.jpg?v=1694327107"
+                alt="Shirt Full size chart"
+              >
+
             {% else %}
               <img
                 class="lazy2"
@@ -1037,6 +1077,14 @@
              
                 src="https://cdn.shopify.com/s/files/1/0661/7423/files/boxers-cm-m.jpg?v=1675675512"
                 alt="Sweat Shorts size chart"
+              >
+
+            {% comment %}cms, mobile, full {% endcomment %}
+            {% elsif product.tags contains 'umshirtsls' %}
+              <img
+                class="lazy2"
+                src="https://cdn.shopify.com/s/files/1/0661/7423/files/UM23_WEB_CORDUROY_SHIRT_FULL_MOB_CMS_4x-100.jpg?v=1694327107"
+                alt="Shirt Full size chart"
               >
 
             {% else %}
