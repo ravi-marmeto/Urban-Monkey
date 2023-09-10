@@ -1,0 +1,63 @@
+@media screen and (max-width: 426px) {
+  .FR_container .featured-review-image-container {
+    width: 80% !important;
+  }
+  .FR_container .flickityt4s-slider {
+    left: 10% !important;
+  }
+}
+
+.FR_container .featured_review_title {
+  color: #000;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Avenir Next;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.FR_container .flickityt4s-viewport {
+  margin-bottom: 24px;
+}
+
+.FR_container .feature_review_content {
+  position: relative;
+  margin-bottom: 16px;
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.FR_container .feature_review_user_name {
+  position: absolute;
+  bottom: 13px;
+  padding: 4px 7px;
+  border-radius: 3px;
+  background: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75%;
+  color: #000;
+  font-family: Avenir Next;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+
+.FR_container .varified_buyer {
+  font-style: italic;
+  font-weight: 275;
+}
+
+.FR_container .frw {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  line-height: normal;
+}
+
+.FR_container .frback {
+  background: white;
+  border-radius: 10px;
+}
