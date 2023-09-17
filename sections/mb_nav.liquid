@@ -93,7 +93,17 @@ endif -%}
             {%- when 'compe' -%}
               {%- unless settings.enable_compe %}{% continue %}{% endunless %}<li id="item_mb_compe" class="t4s-menu-item t4s-item-level-0 t4s-menu-item-btns t4s-menu-item-compare"><a data-link-compare href="{{ routes_search_url }}/?view=compare"><span class="t4s-d-inline-block"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>{{ 'general.mobile_menu.compare' | t }}</span></a></li>
 
-            {%- when 'sea' -%}<li id="item_mb_sea" class="t4s-menu-item t4s-item-level-0 t4s-menu-item-btns t4s-menu-item-sea" data-drawer-delay data-drawer-options='{ "id":"#t4s-search-hidden" }'><a href="{{ routes_search_url }}"><span class="t4s-d-inline-block"><svg width="24" viewBox="0 0 18 19" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.03 11.68A5.784 5.784 0 112.85 3.5a5.784 5.784 0 018.18 8.18zm.26 1.12a6.78 6.78 0 11.72-.7l5.4 5.4a.5.5 0 11-.71.7l-5.41-5.4z" fill="currentColor"></path></svg>{{ 'general.mobile_menu.search' | t }}</span></a></li>
+            {%- when 'sea' -%}
+              <li id="item_mb_sea" class="t4s-menu-item t4s-item-level-0 t4s-menu-item-btns t4s-menu-item-sea" data-drawer-delay data-drawer-options='{ "id":"#t4s-search-hidden" }'>
+                <a href="{{ routes_search_url }}">
+                  <span class="t4s-d-inline-block" style="display: flex !important;align-items: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M11.2319 11.633C10.6771 12.1837 10.0184 12.6205 9.29349 12.9186C8.56858 13.2166 7.79162 13.37 7.00698 13.37C6.22234 13.37 5.44538 13.2166 4.72047 12.9186C3.99556 12.6205 3.33688 12.1837 2.78206 11.633C2.22724 11.0823 1.78713 10.4285 1.48686 9.70892C1.18659 8.98938 1.03204 8.21817 1.03204 7.43935C1.03204 6.66052 1.18659 5.88932 1.48686 5.16977C1.78713 4.45023 2.22724 3.79644 2.78206 3.24572C3.90258 2.13351 5.42233 1.50867 7.00698 1.50867C8.59163 1.50867 10.1114 2.13351 11.2319 3.24572C12.3524 4.35794 12.9819 5.86643 12.9819 7.43935C12.9819 9.01226 12.3524 10.5208 11.2319 11.633ZM11.5005 12.7813C10.1109 13.9365 8.32422 14.5119 6.51607 14.3867C4.70791 14.2614 3.0191 13.4452 1.80463 12.1097C0.590155 10.7741 -0.0553765 9.02326 0.00372835 7.22509C0.0628332 5.42692 0.821971 3.72152 2.12156 2.46739C3.42115 1.21326 5.15998 0.50807 6.97251 0.500069C8.78505 0.492068 10.5301 1.18187 11.8409 2.42448C13.1517 3.66709 13.9261 5.36572 14.0013 7.1633C14.0765 8.96088 13.4467 10.7174 12.2442 12.0636L17.8224 17.6004C17.8761 17.6468 17.9196 17.7036 17.9501 17.7674C17.9806 17.8313 17.9975 17.9007 17.9997 17.9713C18.002 18.0419 17.9895 18.1122 17.963 18.1778C17.9366 18.2434 17.8968 18.3028 17.8461 18.3524C17.7954 18.402 17.735 18.4407 17.6685 18.466C17.6021 18.4913 17.5311 18.5027 17.46 18.4995C17.3889 18.4963 17.3192 18.4785 17.2554 18.4473C17.1915 18.4161 17.1349 18.3721 17.0889 18.3182L11.5005 12.7813Z" fill="black"/>
+                    </svg>
+                  <span style="font-weight: 500">{{ 'general.mobile_menu.search' | t }}.....</span>
+                  </span>
+                </a>
+              </li>
             
             {%- when 'acc' -%}
               {%- unless shop.customer_accounts_enabled %}{% continue %}{% endunless -%}
@@ -269,6 +279,26 @@ endif -%}
 {%- else -%}
 <div data-section-id="{{sid}}"></div>
 {%- endif -%}
+
+<div class="bottom_part">
+  {% if section.settings.button_link != blank and section.settings.button_text != blank %}
+    <div class="button_wrapper">
+      <a href="{{ section.settings.button_link }}">{{ section.settings.button_text }}</a>
+    </div>
+  {% endif %}
+  {% if section.settings.bottom_text != blank %}
+    <div class="bottom_wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14" fill="none">
+        <path d="M0.201172 11.5432C0.201172 11.6371 0.256561 11.7238 0.343276 11.7624L5.25888 13.9998V8.08469L0.201172 5.78223V11.5432ZM1.64141 8.85057C1.64141 8.76868 1.68476 8.69402 1.7522 8.64825C1.82204 8.6049 1.90876 8.59769 1.98342 8.63141L3.4357 9.29373C3.5224 9.33226 3.5778 9.41896 3.5778 9.51289V10.8375C3.5778 10.9194 3.53445 10.9965 3.46701 11.0398C3.42607 11.0663 3.38272 11.0784 3.33696 11.0784C3.30324 11.0784 3.2671 11.0711 3.23579 11.0567L1.78351 10.3944C1.69681 10.3558 1.64141 10.2691 1.64141 10.1752V8.85057Z" fill="black"/>
+        <path d="M5.74023 8.08469V13.9998L10.6558 11.7624C10.7426 11.7238 10.7979 11.6371 10.7979 11.5432V5.78223L5.74023 8.08469ZM9.35771 10.1752C9.35771 10.2691 9.3023 10.3558 9.2156 10.3944L7.76332 11.0567C7.73201 11.0711 7.69588 11.0784 7.66216 11.0784C7.6164 11.0784 7.57305 11.0663 7.53211 11.0398C7.46467 10.9965 7.42132 10.9194 7.42132 10.8375V9.51289C7.42132 9.41896 7.47672 9.33226 7.56342 9.29373L9.0157 8.63141C9.09036 8.59769 9.17707 8.6049 9.24691 8.64825C9.31436 8.69402 9.35771 8.76868 9.35771 8.85057V10.1752Z" fill="black"/>
+        <path d="M10.6405 5.32487L8.6319 4.40967V5.05754C8.6319 5.45493 8.30677 5.78007 7.90937 5.78007H6.46431C6.06691 5.78007 5.74178 5.45493 5.74178 5.05754V4.80465L4.52552 5.84751C4.39546 5.95829 4.22927 6.02091 4.05587 6.02091C3.88247 6.02091 3.71629 5.95829 3.58381 5.8451L2.06891 4.54695L0.361328 5.32487L5.26009 7.55508L5.50093 7.66588L5.74178 7.55508L10.6405 5.32487Z" fill="black"/>
+        <path d="M3.89704 5.48142C3.94196 5.52011 3.99794 5.5394 4.05368 5.5394C4.10942 5.5394 4.1654 5.52011 4.21032 5.48142L5.89623 4.03636C5.9729 3.97074 6.00042 3.86443 5.96537 3.76988C5.93056 3.67545 5.84048 3.61265 5.73958 3.61265H5.01705V2.52886C5.01705 2.19687 5.28706 1.92675 5.61916 1.92675C5.95126 1.92675 6.22127 2.19687 6.22127 2.52886V5.05771C6.22127 5.19072 6.32899 5.29856 6.46211 5.29856H7.90717C8.0403 5.29856 8.14802 5.19072 8.14802 5.05771V2.52886C8.14802 1.13448 7.01365 0 5.61916 0C4.22467 0 3.09031 1.13448 3.09031 2.52886V3.61265H2.36778C2.26687 3.61265 2.17679 3.67545 2.14198 3.76988C2.10694 3.86443 2.13446 3.97074 2.21113 4.03636L3.89704 5.48142Z" fill="black"/>
+      </svg>
+      <div class="bottom_wrapper_text">{{ section.settings.bottom_text }}</div>
+    </div>
+  {% endif %}
+</div>
+
 {%- comment -%}
 {%- for i in (1..25) -%}
       {"type": "paragraph","content": "#{{i}} ——————————————"},{"label": " Collection #{{i}}","id": "cat{{i}}", "type": "collection"},{"type": "image_picker","id": "image{{i}}","label": "Image #{{i}}"},
@@ -279,6 +309,25 @@ endif -%}
   {
     "name": "Mobile Menu",
     "class": "t4s-sp-section-mb-nav",
+    "settings": [
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button Text",
+        "default": "shop all products"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "bottom_text",
+        "label": "Bottom Text",
+        "default": "Free Returns On All Orders"
+      }
+    ],
     "max_blocks": 30,
     "blocks": [
       {
